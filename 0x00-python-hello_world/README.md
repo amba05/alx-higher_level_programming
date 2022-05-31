@@ -2,9 +2,6 @@
 
 project done during Full Stack Software Engineering studies at __ALX AFRICA SE School__. aims at learning how to use the interpreter, printing text and variables, indexing and slicing strings in `Python`
 
-## test 📁
-- [test](./tests/): This directory contains all my test files for this project.
-
 ## Main.h
 * [lists.h](./lists.h): Header file containing prototypes for all functions written in the project.
 
