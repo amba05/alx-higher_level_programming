@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-for num in range(10):
-    for add in range(10):
-        if num < add:
-            print(str(num) + (str(add)), end="")
-
-            if num != 8 | (num == 8 & add != 9):
-                print(", ", end="")
-
-print("\n")
+for digit_1 in range(0, 10):
+    for digit_2 in range(digit_1 + 1, 10):
+        if digit_2 == 9 and digit_1 == 8:
+            print("{}{}".format(digit_1, digit_2))
+        else:
+            print("{}{}".format(digit_1, digit_2), end=", ")
