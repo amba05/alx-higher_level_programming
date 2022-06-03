@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-import add_0 as adds
+if __name__ == "__main__":
+    """Print the sum of 1 and 2"""
+    from add_0 import add
 
-a = 1
-b = 2
+    a = 1
+    b = 2
 
-ans = adds.add(a, b)
-print("{} + {} = {}".format(a, b, ans))
+    ans = add(a, b)
+    print("{} + {} = {}".format(a, b, ans))
