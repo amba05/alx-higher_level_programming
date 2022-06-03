@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-import calculator_1 as calc
 
-a = 10
-b = 5
+if __name__ == "__main__":
+    """Print the sum of 1 and 2"""
+    import calculator_1 as calc
 
-add = calc.add(a, b)
-sub = calc.sub(a, b)
-mul = calc.mul(a, b)
-div = calc.div(a, b)
+    a = 10
+    b = 5
 
-print("{} + {} = {}".format(a, b, add))
-print("{} - {} = {}".format(a, b, sub))
-print("{} * {} = {}".format(a, b, mul))
-print("{} / {} = {}".format(a, b, div))
+    add = calc.add(a, b)
+    sub = calc.sub(a, b)
+    mul = calc.mul(a, b)
+    div = calc.div(a, b)
+
+    print("{} + {} = {}".format(a, b, add))
+    print("{} - {} = {}".format(a, b, sub))
+    print("{} * {} = {}".format(a, b, mul))
+    print("{} / {} = {}".format(a, b, div))
