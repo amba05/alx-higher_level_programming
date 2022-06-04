@@ -8,9 +8,9 @@ def multiple_returns(sentence):
         length = 0
         first = None
         tup = tup + (length, first)
-    
+
     else:
         first = sentence[0]
         tup = tup + (length, first)
-    
+
     return tup
