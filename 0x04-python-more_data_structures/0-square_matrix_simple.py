@@ -5,5 +5,3 @@ def square_matrix_simple(matrix=[]):
         ans = map(lambda x: x * x, i)
         add.append(list(ans))
     return add
-
-
