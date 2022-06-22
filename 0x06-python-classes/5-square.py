@@ -1,9 +1,17 @@
 #!/usr/bin/python3
+"""Defines the square"""
+
+
 class Square:
+    """Defines of the square
+    Args:
+        size (int): size of square
+    """
     def __init__(self, size=0):
         self.size = size
 
     @property
+    """Get/set size of the square"""
     def size(self):
         return self.__size
 
@@ -17,9 +25,11 @@ class Square:
             self.__size = value
 
     def area(self):
+        """return the area of the square"""
         return self.__size * self.__size
 
     def my_print(self):
+        """prints the square"""
         if self.__size == 0:
             print()
 
