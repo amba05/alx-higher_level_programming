@@ -1,35 +1,72 @@
-================================
-How to Use 5-text_indentation.py
-================================
+==============================
+How to Use 4-print_square.py
+==============================
 
-The function is run with ``text_indentation(text)``
+The function is run with ``print_square(number)``
 
 Strings
 ========
 
-``text_indentation(text)`` prints tokenized string seperated by a new lines based on 
-			identified tokens. 
+``print_square(number)`` prints a square with the character #. 
 
 ::
-	>>> from 0-add_integer import add_integer
-        >>> add_integer(3, 3)
-        6
+	>>> print_square = __import__('4-print_square').print_square
+
+        >>> print_square(4)
+        ####
+	####
+	####
+	####
 
 
-It can also work when only the first argument is provided
+It can also work with large integers
 ::
-        >>> add_integer(6)
-        104
+        >>> print_square(10)
+        ##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
 
-It raises a typerror for arguments that are not int or float
+
+It prints a blank line when alloted the value 0
 :: 
-        >>> add_integer('2', 98)
-        Traceback (most recent call last):
-        TypeError: b must be an integer
+        >>> print_square(0)
+	<BLANKLINE>
 
+
+It prints only 1 square when alloted the value 1
 ::
-        >>> add_integer(5, '4')
+        >>> print_square(1)
+	#
+
+
+It raises a ``TypeError`` exception when size alloted is not an integer
+::
+	>>> print_square("5")
 	Traceback (most recent call last):
-	...
-	TypeError: a must be an integer
+        ...
+        TypeError: size must be an integer
+
+
+It raises a ``ValueError`` exception when size is less than 0
+::
+        >>> print_square(-2)
+        Traceback (most recent call last):
+        ...
+        ValueError: size must be >= 0
+
+
+It raises a ``TypeError`` exception when size is a float and is less than 0
+::
+        >>> print_square(-0.4)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
 

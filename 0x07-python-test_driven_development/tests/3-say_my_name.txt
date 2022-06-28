@@ -10,7 +10,8 @@ Array
 ``say_my_name()`` prints **My name is <first name> <last name>**
 
 ::
-	>>> from 3-say_my_name import say_my_name
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
         >>> say_my_name("John", "Smith")
 	My name is John Smith
 
@@ -24,7 +25,7 @@ It can also work for this
 It can also work for this.
 :: 
         >>> say_my_name("Bob")
-	My name is Bob
+	My name is Bob 
 
 
 It raises a ``TypeError`` if first name is not a string
@@ -36,10 +37,16 @@ It raises a ``TypeError`` if first name is not a string
 
 
 
-It raises a ``TypeError`` if div last name is not a string
+It raises a ``TypeError`` if last name is not a string
 ::
         >>> say_my_name("Walter", 2.5)
         Traceback (most recent call last):
 	...
         TypeError: last_name must be a string
 
+It raises a ``ValueError`` if first name is an empty string
+::
+        >>> say_my_name("", "")
+        Traceback (most recent call last):
+        ...
+	ValueError: First_name is empty

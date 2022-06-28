@@ -3,7 +3,7 @@ def text_indentation(text):
     tok = ['.', '?', ':']
 
     if type(text) != str:
-        raise Exception('text must be a string')
+        raise TypeError('text must be a string')
 
     text_len = len(text)
 

@@ -10,12 +10,23 @@ Numbers
 ``add_integer()`` returns the sum of its argument. 
 
 ::
-	>>> from 0-add_integer import add_integer
+	>>> add_integer = __import__('0-add_integer').add_integer
         
 
 	>>> add_integer(3, 3)
         6
 
+	>>> add_integer(1, 2)
+        3
+
+	>>> add_integer(100, -2)
+        98
+
+	>>> add_integer(100.3, -2)
+        98
+
+	>>> add_integer(-3, -2)
+        -5
 
 It can also work when only the first argument is provided
 ::
@@ -26,11 +37,11 @@ It raises a typerror for arguments that are not int or float
 :: 
         >>> add_integer('2', 98)
         Traceback (most recent call last):
-        TypeError: b must be an integer
+        TypeError: a must be an integer
 
 ::
         >>> add_integer(5, '4')
 	Traceback (most recent call last):
 	...
-	TypeError: a must be an integer
+	TypeError: b must be an integer
 
