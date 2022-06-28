@@ -1,0 +1,36 @@
+============================
+How to Use 0-add_integer.py
+============================
+
+The function is run with ``add_integer()``
+
+Numbers
+=======
+
+``add_integer()`` returns the sum of its argument. 
+
+::
+	>>> from 0-add_integer import add_integer
+        
+
+	>>> add_integer(3, 3)
+        6
+
+
+It can also work when only the first argument is provided
+::
+        >>> add_integer(6)
+        104
+
+It raises a typerror for arguments that are not int or float
+:: 
+        >>> add_integer('2', 98)
+        Traceback (most recent call last):
+        TypeError: b must be an integer
+
+::
+        >>> add_integer(5, '4')
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
