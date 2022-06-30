@@ -1,18 +1,20 @@
 #!/usr/bin/python3
+"""
+    Prints the full name
+"""
+
+
 def say_my_name(first_name, last_name=""):
-    if type(first_name) != str:
-        raise TypeError('first_name must be a string')
-    if type(last_name) != str:
-        raise TypeError('last_name must be a string')
+    """Prints firstname and lastname
+        Args:
+            first_name (str): first name
+            last_name (str): last name
 
-    if len(last_name) == 0 & len(first_name) > 0:
-        print("My name is {}".format(first_name))
-
-    elif len(first_name) == 0 & len(last_name) > 0:
-        raise ValueError('First_name is empty')
-
-    elif len(first_name) == 0 and len(last_name) == 0:
-        raise ValueError('First_name is empty')
-
-    else:
-        print("My name is {} {}".format(first_name, last_name))
+        Returns:
+            prints the full name
+    """
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
+    print("My name is {} {}".format(first_name, last_name))

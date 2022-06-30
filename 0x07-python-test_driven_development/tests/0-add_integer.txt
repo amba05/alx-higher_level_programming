@@ -1,47 +1,110 @@
-============================
-How to Use 0-add_integer.py
-============================
+The add_integer module
+==========================
+"""
+    The following are tests for 0-add_integer.py
+"""
 
-The function is run with ``add_integer()``
+----------------------------------------
+import module
+----------------------------------------
+>>> add_integer = __import__('0-add_integer').add_integer
 
-Numbers
-=======
+----------------------------------------
+Tests
+----------------------------------------
+>>> add_integer(1, 2)
+3
 
-``add_integer()`` returns the sum of its argument. 
+>>> add_integer(100, -2)
+98
 
-::
-	>>> add_integer = __import__('0-add_integer').add_integer
-        
+>>> add_integer(2)
+100
 
-	>>> add_integer(3, 3)
-        6
+>>> add_integer(100.3, -2)
+98
 
-	>>> add_integer(1, 2)
-        3
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
-	>>> add_integer(100, -2)
-        98
+>>> add_integer("")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-	>>> add_integer(100.3, -2)
-        98
+>>> add_integer("", "")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-	>>> add_integer(-3, -2)
-        -5
+>>> add_integer(15, "1")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-It can also work when only the first argument is provided
-::
-        >>> add_integer(6)
-        104
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-It raises a typerror for arguments that are not int or float
-:: 
-        >>> add_integer('2', 98)
-        Traceback (most recent call last):
-        TypeError: a must be an integer
+>>> add_integer(list())
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-::
-        >>> add_integer(5, '4')
-	Traceback (most recent call last):
-	...
-	TypeError: b must be an integer
+>>> add_integer(list(1))
+Traceback (most recent call last):
+...
+TypeError: 'int' object is not iterable
 
+>>> add_integer({})
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer({"1": 1})
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(float("inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float("-inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(12 / 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+>>> add_integer(1, float("-inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(1, float("inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float("inf"), float("inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float("-inf"), float("inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float("nan"))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer

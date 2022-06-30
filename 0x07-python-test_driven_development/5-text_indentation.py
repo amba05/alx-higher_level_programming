@@ -1,19 +1,20 @@
 #!/usr/bin/python3
+"""
+    Prints a text with 2 new lines after each of these characters: ., ? and :
+"""
+
+
 def text_indentation(text):
-    tok = ['.', '?', ':']
+    """prints a text with 2 new lines after each of these characters: ., ? and :
 
-    if type(text) != str:
-        raise TypeError('text must be a string')
+        Args:
+            text (str): text
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
 
-    text_len = len(text)
-
-    j = 0
-
-    while j < text_len:
-        if text[j] in tok:
-            print("{}".format(text[j]), end="")
-            j += 2
-            print("{}".format("\n"))
+    for ch in text:
+        if ch == "." or ch == "," or ch == "?" or ch == ":":
+            print("\n")
         else:
-            print("{}".format(text[j]), end="")
-            j += 1
+            print(ch, end="")

@@ -1,25 +1,62 @@
+#!/usr/bin/python3
 """Unittest for max_integer([..])
 """
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 
-class Test_Max_Integer(unittest.TestCase):
-    def test_equal(self):
-        # Test if cases equal to predetermined answers
-        self.assertAlmostEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertAlmostEqual(max_integer([-0.1, -92, 0]), 0)
+class TestMaxInteger(unittest.TestCase):
+    """Test max integer"""
+
+    def test_ordered_list(self):
+        """Test an ordered list of integers."""
+        ordered = [1, 2, 3, 4]
+        self.assertEqual(max_integer(ordered), 4)
+
+    def test_unordered_list(self):
+        """Test an unordered list of integers."""
+        unordered = [1, 2, 4, 3]
+        self.assertEqual(max_integer(unordered), 4)
+
+    def test_max_at_begginning(self):
+        """Test a list with a beginning max value."""
+        max_at_beginning = [4, 3, 2, 1]
+        self.assertEqual(max_integer(max_at_beginning), 4)
+
+    def test_empty_list(self):
+        """Test an empty list."""
+        empty = []
+        self.assertEqual(max_integer(empty), None)
+
+    def test_one_element_list(self):
+        """Test a list with a single element."""
+        one_element = [7]
+        self.assertEqual(max_integer(one_element), 7)
+
+    def test_floats(self):
+        """Test a list of floats."""
+        floats = [1.53, 6.33, -9.123, 15.2, 6.0]
+        self.assertEqual(max_integer(floats), 15.2)
+
+    def test_ints_and_floats(self):
+        """Test a list of ints and floats."""
+        ints_and_floats = [1.53, 15.5, -9, 15, 6]
+        self.assertEqual(max_integer(ints_and_floats), 15.5)
 
     def test_string(self):
-        # Test if case is a string/list of string
-        self.assertEqual(max_integer("2"), '2')
-        self.assertEqual(max_integer(['a', 'g', 'd']), 'g')
+        """Test a string."""
+        string = "Brennan"
+        self.assertEqual(max_integer(string), 'r')
 
-    def test_int(self):
-        # Test if case is not an interable(string/array)
-        self.assertRaises(TypeError, max_integer, 2)
-        self.assertRaises(TypeError, max_integer, -9)
-        self.assertRaises(TypeError, max_integer, [-1, 48, 'b'])
+    def test_list_of_strings(self):
+        """Test a list of strings."""
+        strings = ["Brennan", "is", "my", "name"]
+        self.assertEqual(max_integer(strings), "name")
 
-    def test_none(self):
-        self.assertIsNone(max_integer([]), None)
+    def test_empty_string(self):
+        """Test an empty string."""
+        self.assertEqual(max_integer(""), None)
+
+
+if __name__ == '__main__':
+    unittest.main()

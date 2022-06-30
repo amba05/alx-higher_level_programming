@@ -1,57 +1,24 @@
-# Python - Test-driven development
+# Test Driven Development
 
-## Important codes
-- Checking availability of documentation for modules
-	` python3 -c 'print(__import__("*module_name*").__doc__)' `
+## **Concepts**
 
--  checking line count for modules documentation
-	`python3 -c 'print(__import__("*module_name*").__doc__)' | wc -l
-5`
+![Never forget a test](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/246/giphy-4.gif)
 
-- Checking availability of documentation for functions
-        ` python3 -c 'print(__import__("*module_name*").*function_name*.__doc__)' `
+Testing is the process of evaluating a system or its components(s) with the intent to find out if it satisfies the specified requirements or not. The main purpose of testing is to identify any gaps, errors, or missing requirements contrary to the actual requirements.
 
--  checking line count for functions documentation
-        `python3 -c 'print(__import__("*module_name*").*function_name*.__doc__)' | wc -l
-5`
+Remember code that is not tested cannot be trusted
 
-EXAMPLE:
-	`python3 -c 'print(__import__("0-add_integer").__doc__)' | wc -l
-5`
+## Files in the Directory
 
-	`python3 -c 'print(__import__("0-add_integer").add_integer.__doc__)' | wc -l`
+| Filename              | Description                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 0-add_integer.py      | Function that adds two integers `(Doctest in tests/0-add_integer.txt)`                                                        |
+| 2-matrix_divided.py   | Function that divides all elemtns of a matrix `(Doctest in tests/2-matrix_divided.txt)`                                       |
+| 3-say_my_name.py      | Function that prints My name is <first name> <last name> `(Doctest in tests/3-say_my_name.txt)`                               |
+| 4-print_square.py     | Function that prints a square with the character # `(Doctest in tests/4-print_sqaure.txt) `                                   |
+| 5-text_indentation.py | Function that prints a text with 2 new lines after each of these `.`, `?` and `:` `(Doctest in tests/5-text_indentation.txt)` |
+|tests/6-max_integer_test.py| Unittests for the function `def max_integer(list=[])`|
 
+### PS
 
-- Run doc test for examples in documentions
-	`python3 -m doctest -v file_name`
-
-*EXAMPLE*
-	`python3 -m doctest -v ./tests/0-add_integer.txt | tail -2`
-
-
-**NB** 
-## Doc_test module
-	- The simplest way to write doctest is by writing the test cases inside the module and attaching this;
-		`if __name__ == "__main__":`
-			`import doctest`
-			`doctest.testmod()`
-	- Then the module can be tested with either;
-		`python3 module_name`  --- (non-detailed report, except failed test cases)  **OR**
-		`python3 module_name -v`   --- (detailed report of all test cases)
-
-## Doc_test file
-	- Another way to do it is by creating a file with test cases to be tested, it is most preffered method
-	  in python as it avoids cluttering of code with doctests.
-
-	- it is done by importing doctest in the python_file(code) and attaching the supposed file with the test cases;
-		**open file.py**
-		`import doctest`
-		`doctest.testfile("file.txt")`
-
-	- Then create the test_file(containing test cases) then import the test file and write the test cases.
-		** open file.txt **
-		`>>> from file import test_function`
-		`>>> add(6, 5)`
-		`11`
-
-
+This is a project done during Full Stack Software Engineering studies at ALX_AFRICA. The objectives of the project is to introduce the concept of docstrings and how to create and implement tests in Python.
