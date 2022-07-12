@@ -137,23 +137,30 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(a, b, c, d, e)
 
     def update(self, *args, **kwargs):
-        '''
+        '''Update rectangle class instance attributes
             it assigns an argument to each attribute via the *args and **kwargs
             NB: kwarg = "key word argument"
                 args = normal arguments(all arguments in the bracket)
+            Args:
+                *args (tuple): list of arguements
+                *kwargs (dict): key and values of attributes
+            *args is the list of arguments:
+                1st argument should be the id attribute
+                2nd argument should be the width attribute
+                3rd argument should be the height attribute
+                4th argument should be the x attribute
+                5th argument should be the y attribute        
         '''
 
-        if len(args) >= 1:
-            self.id = args[0]
-        elif len(args) >= 2:
-            self.__width = args[1]
-        elif len(args) >= 3:
-            self.__height = args[2]
-        elif len(args) >= 4:
-            self.__x = args[3]
-        elif len(args) >= 5:
-            self.__y = args[4]
-        else:
+        attrs = ["id", "width", "height", "x", "y"]
+        index = 0
+
+        if args is not None and len(args) > 0:
+            for arg in args:
+                if index < 5:
+                    setattr(self, attrs[index], arg)
+                    index += 1
+        elif kwargs is not None:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
