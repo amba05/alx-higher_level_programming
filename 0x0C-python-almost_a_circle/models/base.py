@@ -1,22 +1,25 @@
 #!/usr/bin/python3
-'''
-    Creating the Base Class
-'''
 
-
+"""Defines a base model class."""
 import json
+import csv
+import turtle
 
 
 class Base:
-    '''
-        it manage id attribute in sub classes
-        Arguments:
-            @id: The id for a specific instance.
-    '''
+    """Base model.
+    This Represents the "base" for all other classes in project 0x0C*.
+    Private Class Attributes:
+        __nb_object (int): Number of instantiated Bases.
+    """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialize a new Base.
+        Args:
+            id (int): The identity of the new Base.
+        """
         if id is not None:
             self.id = id
         else:
@@ -25,59 +28,54 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''
-            Returns: the JSON string representation of list_dictionaries
-        '''
-
-        if list_dictionaries is None or list_dictionaries == "[]":
+        """Return the JSON serialization of a list of dicts.
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''
-            writes the JSON string representation of list_objs to a file
-        '''
-
-        # makes a filename with the class name & .json extension
-        file_name = cls.__name__ + ".json"
-
-        with open(file_name, "w", encoding="utf-8") as file:
+        """Write the JSON serialization of a list of objects to a file.
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as jsonfile:
             if list_objs is None:
-                file.write("[]")
+                jsonfile.write("[]")
             else:
-                list_dict = [list.to_dictionary() for list in list_objs]
-                file.write(cls.to_json_string(list_dict))
+                list_dicts = [o.to_dictionary() for o in list_objs]
+                jsonfile.write(Base.to_json_string(list_dicts))
 
     @staticmethod
     def from_json_string(json_string):
-        """Converts JSON string to dictionary representation
+        """Return the deserialization of a JSON string.
         Args:
-            json_string (dict): JSON string representation
+            json_string (str): A JSON str representation of a list of dicts.
         Returns:
-            JSON string representation of json_string
+            If json_string is None or empty - an empty list.
+            Otherwise - the Python list represented by json_string.
         """
         if json_string is None or json_string == "[]":
             return []
-        else:
-            return json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        '''
-            Returns: an instance with all attributes already set
-        '''
-        from models.rectangle import Rectangle
-        from models.square import Square
-
-        if cls.__name__ == "Rectangle":
-            dummy = Rectangle(4, 6)
-
-        if cls.__name__ == "Square":
-            dummy = Square(4)
-
-        dummy.update(**dictionary)
-        return dummy
+        """Return a class instantied from a dictionary of attributes.
+        Args:
+            **dictionary (dict): Key/value pairs of attributes to initialize.
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)
+            else:
+                new = cls(1)
+            new.update(**dictionary)
+            return new
 
     @classmethod
     def load_from_file(cls):
@@ -174,4 +172,4 @@ class Base:
                 turt.left(90)
             turt.hideturtle()
 
-        turtle.exitonclick() 
+        turtle.exitonclick()
