@@ -88,4 +88,4 @@ class Square(Rectangle):
         for i in elem:
             ans[i] = getattr(self, i)
 
-        return ans
+        return (ans)
