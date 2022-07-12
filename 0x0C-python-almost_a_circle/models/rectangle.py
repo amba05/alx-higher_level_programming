@@ -149,7 +149,7 @@ class Rectangle(Base):
                 2nd argument should be the width attribute
                 3rd argument should be the height attribute
                 4th argument should be the x attribute
-                5th argument should be the y attribute        
+                5th argument should be the y attribute  
         '''
         attrs = ["id", "width", "height", "x", "y"]
         index = 0
