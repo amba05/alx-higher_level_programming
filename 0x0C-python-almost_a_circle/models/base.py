@@ -29,7 +29,7 @@ class Base:
             Returns: the JSON string representation of list_dictionaries
         '''
 
-        if list_dictionaries is not None:
+        if list_dictionaries is None or json_string == "[]":
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -44,7 +44,7 @@ class Base:
 
         file_content = []
 
-        if list_objs is None or list_dictionaries == []:
+        if list_objs is None or list_objs == []:
             for item in list_objs:
                 item = item.to_dictionary()
                 json_dict = json.loads(cls.to_json_string(item))
