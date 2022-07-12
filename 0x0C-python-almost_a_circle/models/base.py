@@ -42,7 +42,7 @@ class Base:
         # makes a filename with the class name & .json extension
         file_name = cls.__name__ + ".json"
 
-        with open(filename, "w", encoding="utf-8") as file:
+        with open(file_name, "w", encoding="utf-8") as file:
             if list_objs is None:
                 file.write("[]")
             else:
