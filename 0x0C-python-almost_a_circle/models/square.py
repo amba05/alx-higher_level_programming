@@ -18,7 +18,7 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize Square objects/instances
-        
+
         Args:
             size (int): size of the square
             x (int): horizontal coordinates
@@ -27,7 +27,7 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
         self.size = self.width
-        
+
     @property
     def size(self):
         '''

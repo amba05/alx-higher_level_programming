@@ -49,7 +49,7 @@ class Base:
                 list_dict = [list.to_dictionary() for list in list_objs]
                 file.write(cls.to_json_string(list_dict))
 
-    @staticmethod    
+    @staticmethod
     def from_json_string(json_string):
         """Converts JSON string to dictionary representation
         Args:
@@ -174,4 +174,4 @@ class Base:
                 turt.left(90)
             turt.hideturtle()
 
-        turtle.exitonclick()        
+        turtle.exitonclick() 
