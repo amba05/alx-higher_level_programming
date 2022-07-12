@@ -44,7 +44,7 @@ class Base:
 
         file_content = []
 
-        if list_objs is None or list_objs == []:
+        if list_objs is None:
             for item in list_objs:
                 item = item.to_dictionary()
                 json_dict = json.loads(cls.to_json_string(item))
