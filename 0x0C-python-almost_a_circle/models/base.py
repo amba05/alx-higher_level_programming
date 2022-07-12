@@ -3,7 +3,9 @@
     Creating the Base Class
 '''
 
+
 import json
+
 
 class Base:
     '''
@@ -15,12 +17,11 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        if id != None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -28,10 +29,9 @@ class Base:
             Returns: the JSON string representation of list_dictionaries
         '''
 
-        if list_dictionaries == None:
+        if list_dictionaries is not None:
             return "[]"
         return json.dumps(list_dictionaries)
-
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -39,12 +39,12 @@ class Base:
             writes the JSON string representation of list_objs to a file
         '''
 
-        #makes a filename with the class name & .json extension
+        # makes a filename with the class name & .json extension
         file_name = cls.__name__ + ".json"
 
         file_content = []
-        
-        if list_objs != None:
+
+        if list_objs is not None:
             for item in list_objs:
                 item = item.to_dictionary()
                 json_dict = json.loads(cls.to_json_string(item))
@@ -53,7 +53,6 @@ class Base:
         with open(file_name, mode="w") as f:
             json.dump(file_content, f)
 
-    
     @staticmethod
     def from_json_string(json_string):
         '''
@@ -61,10 +60,9 @@ class Base:
             Returns: the list of the JSON string representation json_string
         '''
 
-        if json_string == None:
+        if json_string is not None:
             return []
         return json.loads(json_string)
-
 
     @classmethod
     def create(cls, **dictionary):
@@ -83,19 +81,18 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-
     @classmethod
     def load_from_file(cls):
         '''
             loads a dictionary from a json file
-            Returns a dictionary from a string 
+            Returns a dictionary from a string
         '''
         file_name = cls.__name__ + ".json"
 
         try:
             with open(file_name, encoding="UTF-8") as f:
                 content = cls.from_json_string(f.read())
-        except:
+        except Exception:
             return []
 
         instances = []

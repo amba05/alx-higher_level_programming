@@ -6,9 +6,10 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     '''
-        it manages/initializes the width, height 
+        it manages/initializes the width, height
         and coordinate values(x, y)
     '''
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -47,7 +48,6 @@ class Rectangle(Base):
         else:
             self.__height = value
 
-
     @property
     def x(self):
         '''
@@ -68,11 +68,10 @@ class Rectangle(Base):
         else:
             self.__x = value
 
-
     @property
     def y(self):
         """returns a private attribute (y)"""
-        
+
         return self.__y
 
     @y.setter
@@ -88,7 +87,6 @@ class Rectangle(Base):
         else:
             self.__y = value
 
-
     def area(self):
         '''
             Returns: the area value of the Rectangle instance.
@@ -96,22 +94,20 @@ class Rectangle(Base):
 
         return self.__width * self.__height
 
-    
     def display(self):
         '''
             prints in stdout the Rectangle instance with the character (#)
         '''
-        
+
         for a in range(self.__y):
             print("")
-        
+
         for i in range(self.__height):
             for x in range(self.__x):
                 print(" ", end="")
             for j in range(self.__width):
                 print("{}".format("#"), end="")
             print()
-
 
     def __str__(self):
         '''
@@ -127,14 +123,13 @@ class Rectangle(Base):
 
         return "[Rectangle] ({}) {}/{} - {}/{}".format(a, b, c, d, e)
 
-
     def update(self, *args, **kwargs):
         '''
             it assigns an argument to each attribute via the *args and **kwargs
             NB: kwarg = "key word argument"
                 args = normal arguments(all arguments in the bracket)
         '''
-        
+
         if len(args) >= 1:
             self.id = args[0]
         elif len(args) >= 2:
@@ -149,7 +144,6 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-
     def to_dictionary(self):
         '''
             Returns: the dictionary representation of a Rectangle
@@ -162,4 +156,3 @@ class Rectangle(Base):
             ans[i] = getattr(self, i)
 
         return ans
-

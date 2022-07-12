@@ -1,23 +1,23 @@
 #!/usr/bin/python3
 '''
-    creates a Square class that inherits 
+    creates a Square class that inherits
     from the Rectangle class
 '''
 
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     '''
         initializes the size of the square
         NB: a Square is a Rectangle with the same width and height
-            therefore the width and height from rectangle get initialized 
+            therefore the width and height from rectangle get initialized
             with one value (size)
     '''
 
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y)
-
 
     @property
     def size(self):
@@ -26,7 +26,6 @@ class Square(Rectangle):
         '''
 
         return self.width
-
 
     @size.setter
     def size(self, value):
@@ -42,21 +41,19 @@ class Square(Rectangle):
             self.width = value
             self.height = value
 
-
     def __str__(self):
         '''
             it overrides the __str__ method and
             returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
         '''
 
-         a = self.id
-         b = self.x
-         c = self.y
-         d = self.width
-         e = self.height
+        a = self.id
+        b = self.x
+        c = self.y
+        d = self.width
+        e = self.height
 
-         return "[Square] ({}) {}/{} - {}".format(a, b, c, d)
-
+        return "[Square] ({}) {}/{} - {}".format(a, b, c, d)
 
     def update(self, *args, **kwargs):
         '''
@@ -70,14 +67,13 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
         try:
-             self.id = args[0]
-             self.size = args[1]
-             self.x = args[2]
-             self.y = args[3]
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
 
         except IndexError:
-             pass
-
+            pass
 
     def to_dictionary(self):
         '''
