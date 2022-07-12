@@ -26,7 +26,6 @@ class Rectangle(Base):
             TypeError: If either of x or y is not an int.
             ValueError: If either of x or y < 0.
         """
-            
         super().__init__(id)
         self.width = width
         self.height = height
