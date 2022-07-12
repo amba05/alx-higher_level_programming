@@ -44,7 +44,7 @@ class Base:
 
         file_content = []
 
-        if list_objs is not None:
+        if list_objs is None or list_dictionaries == []:
             for item in list_objs:
                 item = item.to_dictionary()
                 json_dict = json.loads(cls.to_json_string(item))
@@ -60,7 +60,7 @@ class Base:
             Returns: the list of the JSON string representation json_string
         '''
 
-        if json_string is not None:
+        if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
 
