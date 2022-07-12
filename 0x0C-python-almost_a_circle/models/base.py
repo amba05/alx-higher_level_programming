@@ -81,22 +81,18 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        '''
-            loads a dictionary from a json file
-            Returns a dictionary from a string
-        '''
-        file_name = cls.__name__ + ".json"
+        """Assign value from file to instances
+        Args:
+            cls (class): current class using the method
+        Returns:
+            an empty list, otherwise
+            a list of instances
+        """
+        filename = str(cls.__name__) + ".json"
 
         try:
-            with open(file_name, encoding="UTF-8") as f:
-                content = cls.from_json_string(f.read())
-        except Exception:
-            return []
-
-        instances = []
-
-        for elem in content:
-            temp = cls.create(**elem)
-            instances.append(temp)
-
-        return instances
+            with open(filename, encoding="utf-8") as file:
+                json_dict = cls.from_json_string(file.read())
+                return [cls.create(**jd) for jd in json_dict]
+        except IOError:
+            return "[]"
