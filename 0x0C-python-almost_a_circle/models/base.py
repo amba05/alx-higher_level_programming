@@ -49,16 +49,18 @@ class Base:
                 list_dict = [list.to_dictionary() for list in list_objs]
                 file.write(cls.to_json_string(list_dict))
 
-    @staticmethod
+    @staticmethod    
     def from_json_string(json_string):
-        '''
-            converts a dict into a json string
-            Returns: the list of the JSON string representation json_string
-        '''
-
+        """Converts JSON string to dictionary representation
+        Args:
+            json_string (dict): JSON string representation
+        Returns:
+            JSON string representation of json_string
+        """
         if json_string is None or json_string == "[]":
             return []
-        return json.loads(json_string)
+        else:
+            return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
