@@ -18,6 +18,7 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize Square objects/instances
+        
         Args:
             size (int): size of the square
             x (int): horizontal coordinates
@@ -32,7 +33,6 @@ class Square(Rectangle):
         '''
             returns the width of the square though its getter
         '''
-
         return self.width
 
     @size.setter
