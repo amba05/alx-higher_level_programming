@@ -42,16 +42,12 @@ class Base:
         # makes a filename with the class name & .json extension
         file_name = cls.__name__ + ".json"
 
-        file_content = []
-
-        if list_objs is None:
-            for item in list_objs:
-                item = item.to_dictionary()
-                json_dict = json.loads(cls.to_json_string(item))
-                file_content.append(json_dict)
-
-        with open(file_name, mode="w") as f:
-            json.dump(file_content, f)
+        with open(filename, "w", encoding="utf-8") as file:
+            if list_objs is None:
+                file.write("[]")
+            else:
+                list_dict = [list.to_dictionary() for list in list_objs]
+                file.write(cls.to_json_string(list_dict))
 
     @staticmethod
     def from_json_string(json_string):
