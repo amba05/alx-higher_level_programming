@@ -19,6 +19,7 @@ In this project, we began working on relational databases. I started practising 
 - [What makes the big difference between a backtick and an apostrophe?](https://stackoverflow.com/questions/29402361/what-makes-the-big-difference-between-a-backtick-and-an-apostrophe/29402458)
 - [MySQL Cheat Sheet](https://alx-intranet.hbtn.io/rltoken/wLQZvDtRCG9eQ69c8jvYVA)
 - [MySQL 8.0 SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.0/en/sql-statements.html)
+- [What Are The DML, DDL, and TCL Commands in SQL?](https://www.databasestar.com/dml-ddl-tcl-commands/)
 
 
 ## More Info
