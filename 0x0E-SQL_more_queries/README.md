@@ -1,4 +1,4 @@
-# SQL - More queries
+# SQL
 
 We started practicing more complex sql queries.
 
@@ -49,6 +49,3 @@ $
 * [Design](https://www.guru99.com/database-design.html)
 * [Normalization](https://www.guru99.com/database-normalization.html)
 * [ER Modeling](https://www.guru99.com/er-modeling.html)
-
-
-
